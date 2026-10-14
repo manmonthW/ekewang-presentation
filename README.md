@@ -1,7 +1,7 @@
-# Guizang PPT Skill · 网页 PPT / 配图 / 封面
+# Ekewang PPT Skill · 网页 PPT / 配图 / 封面
 
-![GitHub stars](https://img.shields.io/github/stars/op7418/guizang-ppt-skill?style=flat-square)
-![License](https://img.shields.io/github/license/op7418/guizang-ppt-skill?style=flat-square)
+![GitHub stars](https://img.shields.io/github/stars/ekewang/ekewang-ppt-skill?style=flat-square)
+![License](https://img.shields.io/github/license/ekewang/ekewang-ppt-skill?style=flat-square)
 ![Skill](https://img.shields.io/badge/Skill-Agent-111111?style=flat-square)
 ![HTML Deck](https://img.shields.io/badge/HTML-Deck-0A7CFF?style=flat-square)
 ![Claude Code](https://img.shields.io/badge/Claude%20Code-Supported-6B5B95?style=flat-square)
@@ -18,7 +18,7 @@
 - **Style A: 电子杂志 × 电子墨水**。像 *Monocle* 贴上了代码,适合叙事、观点、分享、个人风格表达。
 - **Style B: 瑞士国际主义**。网格至上、单一高饱和锚点色、直角、发丝线、极致字号对比,适合事实、产品、分析、方法论表达。
 
-> 由 [歸藏](https://x.com/op7418) 在"一人公司:被 AI 折叠的组织"、"一种新的工作方式"等线下分享中沉淀而成,踩过的每一个坑都写进了 `checklist.md`。
+> 由 [ekewang](https://x.com/ekewang) 在"一人公司:被 AI 折叠的组织"、"一种新的工作方式"等线下分享中沉淀而成,踩过的每一个坑都写进了 `checklist.md`。
 > 赞助与支持信息见 [SPONSORS.md](./SPONSORS.md)。
 
 **旧主题 · Style A 电子杂志风**
@@ -32,19 +32,19 @@
 ## 30 秒开始
 
 ```bash
-npx skills add https://github.com/op7418/guizang-ppt-skill --skill guizang-ppt-skill
+npx skills add https://github.com/ekewang/ekewang-ppt-skill --skill ekewang-ppt-skill
 ```
 
 也可以直接把这段话发给有 shell 权限的 AI Agent:
 
 ```text
-帮我安装 guizang-ppt-skill。请把 https://github.com/op7418/guizang-ppt-skill 克隆到 ~/.claude/skills/guizang-ppt-skill,安装完成后检查 SKILL.md、assets/、references/ 是否存在。
+帮我安装 ekewang-ppt-skill。请把 https://github.com/ekewang/ekewang-ppt-skill 克隆到 ~/.claude/skills/ekewang-ppt-skill,安装完成后检查 SKILL.md、assets/、references/ 是否存在。
 ```
 
 已经安装过的话,用这段话更新:
 
 ```text
-帮我更新 guizang-ppt-skill。请进入 ~/.claude/skills/guizang-ppt-skill 执行 git pull,然后告诉我当前最新 commit。
+帮我更新 ekewang-ppt-skill。请进入 ~/.claude/skills/ekewang-ppt-skill 执行 git pull,然后告诉我当前最新 commit。
 ```
 
 安装后直接对 Agent 说:
@@ -67,7 +67,7 @@ npx skills add https://github.com/op7418/guizang-ppt-skill --skill guizang-ppt-s
   <img src="https://github.com/user-attachments/assets/5b0c22c8-aff4-4219-900d-6af8604c57a8" alt="360 安全龙虾金牌赞助" width="100%">
 </a>
 
-Guizang PPT Skill 的持续迭代获得 **360 安全龙虾** 金牌赞助和 [真格 Token Grant](https://zhenfund.feishu.cn/share/base/form/shrcn1lAANF659o7EpWnxlR1VOh?sessionid=) 支持。更多信息见 [SPONSORS.md](./SPONSORS.md)。
+Ekewang PPT Skill 的持续迭代获得 **360 安全龙虾** 金牌赞助和 [真格 Token Grant](https://zhenfund.feishu.cn/share/base/form/shrcn1lAANF659o7EpWnxlR1VOh?sessionid=) 支持。更多信息见 [SPONSORS.md](./SPONSORS.md)。
 
 ## 效果
 
@@ -121,16 +121,16 @@ Guizang PPT Skill 的持续迭代获得 **360 安全龙虾** 金牌赞助和 [�
 ### 方式一:一行命令安装(推荐)
 
 ```bash
-npx skills add https://github.com/op7418/guizang-ppt-skill --skill guizang-ppt-skill
+npx skills add https://github.com/ekewang/ekewang-ppt-skill --skill ekewang-ppt-skill
 ```
 
 ### 方式二:把下面这段话直接发给 AI
 
-> 帮我安装 `guizang-ppt-skill` 这个 Claude Code skill。请按下面步骤做:
+> 帮我安装 `ekewang-ppt-skill` 这个 Claude Code skill。请按下面步骤做:
 >
 > 1. 确保 `~/.claude/skills/` 目录存在(不存在就创建)
-> 2. 执行 `git clone https://github.com/op7418/guizang-ppt-skill.git ~/.claude/skills/guizang-ppt-skill`
-> 3. 验证:`ls ~/.claude/skills/guizang-ppt-skill/` 应该看到 `SKILL.md`、`assets/`、`references/` 三项
+> 2. 执行 `git clone https://github.com/ekewang/ekewang-ppt-skill.git ~/.claude/skills/ekewang-ppt-skill`
+> 3. 验证:`ls ~/.claude/skills/ekewang-ppt-skill/` 应该看到 `SKILL.md`、`assets/`、`references/` 三项
 > 4. 告诉我安装好了,之后我说"做一份杂志风 PPT"之类的话就会触发这个 skill
 
 把这段话复制粘贴给 Claude Code / Cursor / 任何有 shell 权限的 AI Agent,它会自动完成安装。
@@ -138,7 +138,7 @@ npx skills add https://github.com/op7418/guizang-ppt-skill --skill guizang-ppt-s
 ### 方式三:手动命令行
 
 ```bash
-git clone https://github.com/op7418/guizang-ppt-skill.git ~/.claude/skills/guizang-ppt-skill
+git clone https://github.com/ekewang/ekewang-ppt-skill.git ~/.claude/skills/ekewang-ppt-skill
 ```
 
 ### 触发方式
@@ -239,7 +239,7 @@ node scripts/validate-swiss-deck.mjs path/to/index.html
 ## 目录结构
 
 ```
-guizang-ppt-skill/
+ekewang-ppt-skill/
 ├── SKILL.md              ← Skill 主文件:工作流、原则、常见错误
 ├── README.md             ← 本文件
 ├── assets/
@@ -305,7 +305,7 @@ guizang-ppt-skill/
 - [*Monocle*](https://monocle.com) 杂志的版式
 - YC Garry Tan "Thin Harness, Fat Skills"
 - Massimo Vignelli / Helvetica Forever / 瑞士国际主义网格系统
-- 歸藏线下分享 PPT 系列
+- ekewang线下分享 PPT 系列
 
 ## Roadmap
 
@@ -345,4 +345,4 @@ Bug、排版问题、新布局需求——欢迎开 Issue 或 PR。改动请优�
 
 ## License
 
-AGPL-3.0 © 2026 [op7418](https://github.com/op7418)
+AGPL-3.0 © 2026 [ekewang](https://github.com/ekewang)

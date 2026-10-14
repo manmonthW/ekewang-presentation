@@ -175,7 +175,7 @@ layouts.md 使用的所有类（`h-hero` / `h-xl` / `h-sub` / `h-md` / `lead` / 
       一个 AI 创作者 —— 在 64 天里做了 11 万行代码、在 9 个平台上持续输出，生活节奏几乎没有被改变。
     </p>
     <div class="meta-row" data-anim>
-      <span>歸藏 Guizang</span><span>·</span><span>独立创作者 / CodePilot 作者</span>
+      <span>ekewang ekewang</span><span>·</span><span>独立创作者 / CodePilot 作者</span>
     </div>
   </div>
   <div class="foot">

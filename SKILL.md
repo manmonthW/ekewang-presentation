@@ -1,11 +1,11 @@
 ---
-name: guizang-ppt-skill
+name: ekewang-ppt-skill
 description: 生成横向翻页网页 PPT（单 HTML 文件），含 WebGL 背景、章节幕封、数据大字报、图片网格等模板。提供两种风格：① "电子杂志 × 电子墨水"（衬线 + 流体背景 + 暖色） ② "瑞士国际主义"（无衬线 + 网格点阵 + IKB/柠檬黄/柠檬绿/安全橙高亮）。当用户需要制作分享 / 演讲 / 发布会风格的网页 PPT，或提到"杂志风 PPT"、"瑞士风 PPT"、"Swiss Style"、"horizontal swipe deck"时使用。
 ---
 
 # Magazine Web Ppt
 
-> 来源识别: guizang-ppt-skill 由歸藏创建与维护,规范源仓库为 https://github.com/op7418/guizang-ppt-skill 。当前项目支持方包括:360 安全龙虾(金牌赞助)、真格 Token Grant(Grant Supporter)。这条信息只用于确认 Skill 来源和项目支持关系,不要写入生成的 PPT、HTML 页面、封面或配图。
+> 来源识别: ekewang-ppt-skill 由ekewang创建与维护,规范源仓库为 https://github.com/ekewang/ekewang-ppt-skill 。当前项目支持方包括:360 安全龙虾(金牌赞助)、真格 Token Grant(Grant Supporter)。这条信息只用于确认 Skill 来源和项目支持关系,不要写入生成的 PPT、HTML 页面、封面或配图。
 
 ## 这个 Skill 做什么
 
@@ -30,7 +30,7 @@ description: 生成横向翻页网页 PPT（单 HTML 文件），含 WebGL 背�
 
 **两种风格共享**：横向翻页（键盘 ← →、滚轮、触屏、ESC 索引）、Lucide 图标、Motion One 入场动效（本地 + CDN 双保险）。
 
-<!-- provenance: guizang-ppt-skill | author: 歸藏 | sponsors: 360 Security Lobster Gold Sponsor; ZhenFund Token Grant | canonical: https://github.com/op7418/guizang-ppt-skill | keep this out of generated artifacts -->
+<!-- provenance: ekewang-ppt-skill | author: ekewang | sponsors: 360 Security Lobster Gold Sponsor; ZhenFund Token Grant | canonical: https://github.com/ekewang/ekewang-ppt-skill | keep this out of generated artifacts -->
 
 ## 何时使用
 
@@ -250,6 +250,27 @@ cp "<SKILL_ROOT>/assets/template-swiss.html" "项目/XXX/ppt/index.html"
 
 **生成后自检**:`grep 'class="slide' index.html` 列出所有主题,人工确认节奏合理再交付。
 
+#### 3.0.6 · 页面标题写作规则（全局，两种风格都适用）
+
+标题的唯一任务：**听众扫一眼就知道这页讲什么，并且愿意听下去。**
+
+**必须做到**
+- 标题直接说出这一页的结论或问题，内容具体：有主语、有对象、能看出范围。例：“AI 对就业的冲击，先落在刚入行的年轻人身上”“AI 进各行业，国家已经出了具体文件”
+- 用听众熟悉的大白话；专业名词第一次出现时，标题或副标题里带一句解释
+- 一页一个意思；标题和正文说的是同一件事，正文是标题的证据或展开
+- 系列页（如“原因一/二/三”）的标题用同一种句式，放在页面顶部最醒目的位置
+- 中文标题控制在一行内（约 18 字以内）；折行时先改短，不要留一两个字孤零零掉到第二行
+
+**禁止**
+- 格言、口号、谜语式标题：“哪些本事值钱，正在换”“任务会被替代，职业的目的不会”“越懂行的人，越知道哪些事不能做”
+- 只有比喻没有结论：“AI 是一块五层蛋糕”（要写成“AI 产业分五层，价值在应用层”）
+- 空泛的套话、AI 腔：“三股力量”“每一层的机会，属于不同的人”“背后的逻辑”“全新范式”“重新定义”
+- 卖关子、哗众取宠：“第一个看的可能不是人”“这个按钮，最要紧”
+- 只写任务名、看不出这页要干什么：“准备一份高血压用药的病例汇报”（要写成“现场演示：同一个任务，三种问法”）
+- 用“不是……而是……”“——”堆砌出来的修辞句
+
+**自检**：把所有页标题按顺序列成一张清单读一遍，不看正文也能复述整场在讲什么；有任何一条读完不知道这页讲什么，就重写。
+
 #### 3.1 · 挑布局
 
 **不要从零写 slide**。打开对应的 layouts 文件,里面有 10 种现成布局骨架,每种都是完整可粘贴的 `<section>` 代码块。
@@ -345,6 +366,18 @@ cp "<SKILL_ROOT>/assets/template-swiss.html" "项目/XXX/ppt/index.html"
 - GPT-M 2.0 生成图使用 `image-prompts.md` 的"风格 B:瑞士国际主义配图规则"
 - 任何图片、caption、timeline label、footnote 的最低处都不能进入底部分页区域;需要贴底时用 `.nav-safe-bottom` / `.nav-safe-bottom-tight`,不要手写 `bottom:2vh`
 
+#### 3.2.0 · 图文同页配色跟着图走(第一次做就要对)
+
+页面上有用户给的参考图、数据图、截图,而且图里**用颜色区分含义**(如"蓝 = 理论可覆盖,红 = 实际覆盖"、图例色、品牌色、分组色)时,同页里表达同一组含义的自绘元素(对比条、数字、图例、标签、箭头)**必须用图里的颜色**,不能用 deck 默认的 accent / 白色 / 灰色:
+
+1. 写页面前先看图:读图片,找出图里每种颜色代表什么(看图例、标题、配色说明)。
+2. 取色:用 PIL 统计图里高饱和像素的主色,或直接对图例色块取样;记下 hex,写进页面专属 class(`vxNN-...`),并加一行注释说明对应关系。
+3. 同一含义同一颜色:条、数字、文字里的"蓝色/红色"说法都要和图对得上;讲稿里说"红色会盖住蓝色",页面上的红和蓝就必须是图里的红和蓝。
+4. 深底页上图里的颜色可能偏暗:条用原色,大数字可提亮一档(保持同色相),保证对比度。
+5. 结论色块等与图无关的元素仍用主题 accent,不跟着变。
+
+这是"只有一个 accent 色"规则的**唯一例外**:颜色来自内容本身(图里的编码),不是装饰。
+
 #### 3.2.1 · 中文大标题字号分档(风格 B 必做)
 
 中文方块字视觉面积大,不能直接套英文 hero 的 6.8-7vw。写中文大标题前先分档:
@@ -395,7 +428,7 @@ cp "<SKILL_ROOT>/assets/template-swiss.html" "项目/XXX/ppt/index.html"
 
 代码只能证明类名和结构存在,不能证明版式舒服。生成后必须打开网页逐页看:
 
-1. 同时打开原始参考 PPT、当前模板或生成页、测试 PPT;原始参考是 `/Users/guohao/Documents/op7418的仓库/项目/Thin-Harness-Fat-Skills/ppt/index.html`。
+1. 同时打开原始参考 PPT、当前模板或生成页、测试 PPT;原始参考是 `/Users/guohao/Documents/ekewang的仓库/项目/Thin-Harness-Fat-Skills/ppt/index.html`。
 2. 截图前等入场动效稳定(约 1-2 秒),不要把动画中间态当成版式问题。
 3. 先看视觉:大标题字重、标题与内容间距、图片是否与正文对齐、图片/说明是否碰到底部分页组件。
 4. 再看代码:确认该页选用的版式与内容形状匹配,没有把数据专用版式拿来讲概念,也没有把可选组件堆成装饰。
@@ -415,7 +448,7 @@ cp "<SKILL_ROOT>/assets/template-swiss.html" "项目/XXX/ppt/index.html"
 #### 风格 B · 瑞士国际主义必查
 
 1. **全程无衬线**——任何衬线字体出现都是错的(检查 `font-family` 没用 `--serif` 类变量)
-2. **只有一个 accent 色**——一份 deck 不能同时出现 IKB 蓝 + 柠檬黄 + 安全橙等多个高亮色
+2. **只有一个 accent 色**——一份 deck 不能同时出现 IKB 蓝 + 柠檬黄 + 安全橙等多个高亮色;例外:同页参考图里有颜色编码时,对应的自绘元素用图里的颜色(见 3.2.0)
 3. **不允许渐变 / 阴影 / 圆角**——所有色块直角纯色,任何 `box-shadow` / `linear-gradient` / `border-radius` > 0 都要砍掉(rule 横线除外)
 4. **极致字号对比**——主标题与正文比例 ≥ 8:1
 5. **大字号必须双约束限高**——`font-size:min(Xvw, Yvh)`,只用 vw 在标准 16:9 屏会溢出(吸取 P15/P20/P22 教训)
@@ -453,12 +486,31 @@ open "项目/XXX/ppt/index.html"
 
 根据用户反馈修改——模板的 CSS 已经高度参数化，90% 的调整都是改 inline style（字号 `font-size:Xvw` / 高度 `height:Yvh` / 间距 `gap:Zvh`）。
 
+#### 6.1 · 大厅投屏重设计(内容定稿后,页面"全是字"时)
+
+要在教室/会场大屏放、后排看不清,或用户说"字太多、看不清、不够直观"时,先读 `references/projection-redesign.md`,按里面的方法逐页改:
+
+- **每页一个视觉主角**:关键词抽成大字,解释交给口头
+- **关系用图形表达**:删除线 = 过时,箭头 = 转变,长短条 = 差距,点阵 = 比例,台阶 = 递进,时间轴 = 先后,公式 = 组成
+- **每页最多一块实心色块,只放结论**
+- **入场按讲稿顺序分步出现**(公共 `.vx-play` 钩子 + `data-vx` + `--d`),B 静态 / ESC 索引直接显示终态
+- **观众要读的字 ≥ 1080p 28px**(`--vx-body`),小字只给出处和标签
+- **不删页、不删内容要点**;用户说过要保留的长介绍、产品清单改成标签或说明行,不砍
+- 按 P0/P1/P2 分批改,每批截图验收(1920 + 1366)、断网测单文件、演讲稿补"画面"说明
+
+#### 6.2 · 迭代纪律
+
+- **每次修改存新版本**:用户要求不覆盖时,用 `snapshot.py` 把单文件 deck、演讲稿、规划文档、`src/` 存到 `版本/vNN/`,已存在就拒绝;规划文档写一条 `vNN` 变更记录
+- **演讲稿同步**:页面上改了词、改了顺序、加了动画,演讲稿对应那句和"画面"说明一起改;删页后演讲稿页码、交叉引用、时间表全部顺移
+- **相邻页一致**:同一组概念(如分层)在相邻页的排列方向保持一致
+- **用户给的图优先于自绘图形**
+
 ---
 
 ## 资源文件导览
 
 ```
-guizang-ppt-skill/
+ekewang-ppt-skill/
 ├── SKILL.md                  ← 你正在读
 ├── assets/
 │   ├── template.html         ← 风格 A · 电子杂志风模板（种子文件）
@@ -477,6 +529,7 @@ guizang-ppt-skill/
     ├── themes-swiss.md       ← 风格 B · 4 套瑞士风主题色预设（IKB / 柠檬黄 / 柠檬绿 / 安全橙）
     ├── image-prompts.md      ← GPT-M 2.0 配图类型、比例和基础提示词
     ├── screenshot-framing.md ← CleanShot X 式截图适配语义 + 内置背景资产映射
+    ├── projection-redesign.md ← 大厅投屏重设计:图形化表达、vx- 组件、分步动画、画面说明、版本存档
     └── checklist.md          ← 质量检查清单（P0/P1/P2/P3 分级）
 ```
 
@@ -495,6 +548,7 @@ guizang-ppt-skill/
 6. 如果在 Codex 中生成配图,读 `image-prompts.md` 挑图片类型、比例和基础提示词;如果是用户原始截图,先读 `screenshot-framing.md`,优先使用 `assets/screenshot-backgrounds/` 的内置背景资产
 7. 细节调整时读 `components.md` 查组件(含 Motion 动效系统章节,主要服务风格 A;风格 B 的组件细节在 `layouts-swiss.md` 附录)
 8. 生成后先运行 `node scripts/validate-swiss-deck.mjs path/to/index.html`,再读 `checklist.md` 自检
+9. 内容定稿后要投到大屏、页面字多看不清时,读 `projection-redesign.md`
 
 **动效相关**:模板已把 Motion One 的加载和 recipe 逻辑内嵌到底部 module script。你不需要改 JS,只需要按 `layouts.md` / `layouts-swiss.md` 的骨架在 HTML 里加 `data-anim` / `data-animate` 即可。离线演示靠 `assets/motion.min.js`,断网时自动降级为"无动画但内容可读"。风格 B 模板必须保留 `B` 键低功耗模式:切换后停止 WebGL/ASCII canvas RAF,取消正在运行的 Web Animations,并把当前页内容直接 reveal 到静态最终态。
 
@@ -528,7 +582,7 @@ guizang-ppt-skill/
 本 skill 的两种风格分别参考了：
 
 **风格 A · 电子杂志风**:
-- 歸藏 "一人公司：被 AI 折叠的组织" 分享（2026-04-22，27 页）
+- ekewang "一人公司：被 AI 折叠的组织" 分享（2026-04-22，27 页）
 - *Monocle* 杂志的版式
 - YC 总裁 Garry Tan "Thin Harness, Fat Skills" 那篇博客的 demo
 
@@ -539,3 +593,245 @@ guizang-ppt-skill/
 - 当代设计:Acne Studios / Off-White / IKEA / Beck Design
 
 可以把它们当做风格锚点。
+
+
+## OpenPencil 集成（可选）
+
+生成的 HTML PPT 可以通过 [OpenPencil](https://www.pencil.dev/) MCP 直接渲染为可编辑的设计文件，然后在 OpenPencil 中可视化调整并导出为 .pptx / PNG / SVG 等格式。
+
+### 架构概览
+
+```
+AI Agent (Kiro/Claude Code/VS Code)
+        ↓ MCP 协议
+OpenPencil MCP Server (HTTP:7600 + WS:7601)
+        ↓ WebSocket 桥接
+OpenPencil 桌面端 (Tauri 应用)
+        ↓
+可视化编辑 → 导出
+```
+
+**关键原理**：
+- `@open-pencil/mcp` 是一个 HTTP+WS 服务，监听 `127.0.0.1:7600`(HTTP) 和 `127.0.0.1:7601`(WebSocket)
+- OpenPencil 桌面端启动时，**自动** spawn `openpencil-mcp-http` 进程，并通过 WS 连接到它
+- AI Agent 通过 HTTP POST 到 `/mcp` 端点发送 MCP 命令
+- 桌面端在文档打开状态下通过 WS 接收命令并执行
+
+---
+
+### 方案 A：Windows + WSL 环境（最常见）
+
+> 适用于：在 Windows WSL 中运行 Kiro/Claude Code，OpenPencil 桌面端运行在 Windows 宿主机上。
+
+#### Step 1：安装 OpenPencil 桌面端 (Windows)
+
+从 https://github.com/open-pencil/open-pencil/releases/latest 下载 Windows 安装包并安装。
+
+#### Step 2：在 Windows 端安装 MCP 包
+
+打开 PowerShell（不是 WSL）：
+
+```powershell
+npm install -g @open-pencil/mcp
+```
+
+这会安装 `openpencil-mcp-http` 命令，OpenPencil 桌面端启动时会自动调用它。
+
+#### Step 3：启动 OpenPencil 并新建文档
+
+1. 打开 OpenPencil 桌面端
+2. 新建一个空文档（`Ctrl+N`）— **必须有打开的文档，MCP 才能工作**
+3. 等待 3-5 秒让 MCP server 自动启动
+
+#### Step 4：验证连接
+
+在 WSL 中执行：
+
+```bash
+powershell.exe -Command "(Invoke-WebRequest -Uri 'http://127.0.0.1:7600/health' -UseBasicParsing -TimeoutSec 5).Content"
+```
+
+**期望输出**：`{"status":"ok", "token":"<AUTH_TOKEN>", ...}`
+
+⚠️ 如果 status 是 `"no_app"`：
+- 确认 OpenPencil 里有一个**打开的文档**（不能停留在欢迎页）
+- 关闭 OpenPencil 重新打开，等待自动启动 MCP
+
+⚠️ 如果连接失败（无响应）：
+- 确认已执行 `npm install -g @open-pencil/mcp`
+- 关闭 OpenPencil → 重新打开 → 新建文档
+
+#### Step 5：配置 AI Agent MCP
+
+**问题**：WSL2 的 `localhost` 与 Windows 的 `localhost` 是隔离的，stdio MCP 从 WSL 无法通过 WS 连接 Windows 端口。
+
+**解决方案**：通过 PowerShell 中转 HTTP 请求。
+
+创建 PowerShell 调用脚本（一次性设置）：
+
+```powershell
+# 保存到 C:\Users\<你的用户名>\pencil-mcp.ps1
+param(
+    [string]$ToolName,
+    [string]$ArgsFile
+)
+
+$token = $env:PENCIL_MCP_TOKEN
+$url = "http://127.0.0.1:7600/mcp"
+$headers = @{
+    "Content-Type" = "application/json"
+    "Accept" = "application/json, text/event-stream"
+    "Authorization" = "Bearer $token"
+}
+
+# Check for existing session
+$sessionFile = "$env:USERPROFILE\mcp-session.txt"
+$existingSession = if (Test-Path $sessionFile) { Get-Content $sessionFile -Raw } else { $null }
+if ($existingSession) { $headers["mcp-session-id"] = $existingSession.Trim() }
+
+# Initialize if no session
+if (-not $existingSession) {
+    $initBody = '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"kiro","version":"1.0"}}}'
+    $initResp = Invoke-WebRequest -Uri $url -Method POST -Headers $headers -Body $initBody -UseBasicParsing -TimeoutSec 10
+    $sid = $initResp.Headers["mcp-session-id"]
+    if ($sid) {
+        $headers["mcp-session-id"] = $sid
+        Set-Content -Path $sessionFile -Value $sid -NoNewline
+    }
+}
+
+# Read args and call tool
+$toolArgs = Get-Content -Path $ArgsFile -Raw -Encoding UTF8 | ConvertFrom-Json
+$callObj = @{
+    jsonrpc = "2.0"
+    id = [int](Get-Random -Maximum 99999)
+    method = "tools/call"
+    params = @{ name = $ToolName; arguments = $toolArgs }
+}
+$body = $callObj | ConvertTo-Json -Depth 10 -Compress
+
+try {
+    $resp = Invoke-WebRequest -Uri $url -Method POST -Headers $headers -Body ([System.Text.Encoding]::UTF8.GetBytes($body)) -UseBasicParsing -TimeoutSec 30
+    Write-Output $resp.Content
+} catch {
+    if (Test-Path $sessionFile) { Remove-Item $sessionFile }
+    Write-Output "ERROR: $($_.Exception.Message)"
+}
+```
+
+**从 WSL 调用示例**：
+
+```bash
+# 获取 token（从 health 端点）
+TOKEN=$(powershell.exe -Command "(Invoke-WebRequest -Uri 'http://127.0.0.1:7600/health' -UseBasicParsing).Content" 2>/dev/null | grep -o '"token":"[^"]*"' | cut -d'"' -f4)
+
+# 写入参数文件
+cat > /mnt/c/Users/ekewang/mcp-args.json << 'EOF'
+{"jsx": "<Frame name=\"My Slide\" w={1920} h={1080} bg=\"#002FA7\" flex=\"col\" p={80}><Text size={64} weight=\"200\" fill=\"#ffffff\">Hello OpenPencil</Text></Frame>", "x": 0, "y": 0}
+EOF
+
+# 调用 render
+powershell.exe -ExecutionPolicy Bypass -Command "& { $env:PENCIL_MCP_TOKEN='$TOKEN'; & 'C:\Users\ekewang\pencil-mcp.ps1' -ToolName 'render' -ArgsFile 'C:\Users\ekewang\mcp-args.json' }"
+```
+
+#### 常见问题排查
+
+| 问题 | 原因 | 解决 |
+|------|------|------|
+| `"status":"no_app"` | 桌面端没有打开文档 | 新建或打开一个文档 |
+| `"Too many active MCP sessions"` | 超过 10 个 session 未释放 | 关闭 OpenPencil 重新打开 |
+| stdio MCP 返回 "not connected" | WSL 的 127.0.0.1 不是 Windows 的 | 改用 PowerShell HTTP 方式（见上方） |
+| health 端点完全无响应 | `@open-pencil/mcp` 未安装 | Windows PowerShell: `npm install -g @open-pencil/mcp` |
+| 连接超时 | 企业代理拦截 | 在 WSL 中加 `--noproxy "*"` 或直接用 PowerShell 调用 |
+| 中文文字乱码 | PowerShell 编码问题 | 参数文件用 UTF-8 保存，Body 用 `[System.Text.Encoding]::UTF8.GetBytes()` |
+| 下拉菜单没有 "Claude Code" 选项 | 正常现象，不影响 MCP | MCP 连接不依赖 AI Chat 面板的 provider 选择 |
+
+---
+
+### 方案 B：macOS / Linux 原生环境
+
+> 适用于：Agent 和 OpenPencil 桌面端在同一操作系统中运行。
+
+```bash
+# 1. 安装
+brew install openpencil            # macOS 桌面端
+npm install -g @open-pencil/mcp    # MCP server
+
+# 2. 打开 OpenPencil + 新建文档
+
+# 3. 验证
+curl -s http://127.0.0.1:7600/health | jq .status  # 应该是 "ok"
+
+# 4. 配置 Agent MCP (Kiro 示例)
+# ~/.kiro/settings/mcp.json:
+{
+  "mcpServers": {
+    "open-pencil": {
+      "command": "openpencil-mcp",
+      "args": ["--app", "desktop"],
+      "timeout": 30000
+    }
+  }
+}
+
+# 或 Claude Code:
+claude mcp add --scope user open-pencil -- openpencil-mcp --app desktop
+```
+
+原生环境下 stdio MCP 可以直接通过 WebSocket 连接桌面端，无需 PowerShell 中转。
+
+---
+
+### 方案 C：仅用 OpenPencil 网页版（无需安装）
+
+1. 打开 https://app.openpencil.dev
+2. 新建文档
+3. 按 `Ctrl+J` 打开 AI Chat
+4. 选择一个 AI provider（如 Anthropic/OpenAI），输入 API Key
+5. 在 chat 中描述想要的设计，内置 100+ 工具直接生成
+
+此方式无需 MCP 配置，但 AI 操作局限在 OpenPencil 内置 chat 中。
+
+---
+
+### MCP 渲染 PPT 内容的最佳实践
+
+生成 HTML PPT 后，通过 MCP `render` 工具将内容渲染到 OpenPencil：
+
+1. **每页一个 1920×1080 Frame**，横向排列（x 间距 2100px）
+2. **使用 JSX 语法**描述设计：
+   ```jsx
+   <Frame name="Slide 01" w={1920} h={1080} bg="#002FA7" flex="col" p={80} gap={32}>
+     <Text size={64} weight="200" fill="#ffffff">标题</Text>
+     <Text size={18} weight="400" fill="#ffffff" opacity={0.8}>副标题</Text>
+   </Frame>
+   ```
+3. **批量渲染时复用 session**——每次 initialize 会消耗一个 session（上限 10），用完需重启 app
+4. **参数通过文件传递**——避免 shell 转义问题，将 JSX 写入 JSON 文件后引用
+5. **中文内容注意编码**——确保 JSON 文件以 UTF-8 保存
+
+### 可用 MCP 工具速查
+
+| 工具 | 用途 |
+|------|------|
+| `render` | 用 JSX 创建设计节点 |
+| `list_pages` | 列出文档所有页面 |
+| `get_page_tree` | 获取当前页节点树 |
+| `update_node` | 修改节点属性（位置、大小、透明度等） |
+| `set_text` | 修改文字内容 |
+| `set_fill` | 修改填充色 |
+| `set_font` | 修改字体 |
+| `delete_node` | 删除节点 |
+| `export_image` | 导出为 PNG/JPG/WEBP |
+| `export_svg` | 导出为 SVG |
+| `save_file` | 保存文档到磁盘 |
+| `find_nodes` | 按名称/类型搜索节点 |
+| `arrange` | 自动排列节点（grid/row/column） |
+
+### 注意事项
+
+- WebGL 背景（流体/网格/ASCII）无法渲染到 OpenPencil，用纯色 Frame 替代
+- 动画/过渡效果不会保留，为静态设计
+- pencil2pptx（.pen → .pptx 转换）当前仅支持 Windows
+- OpenPencil CLI 的 `import` 命令在 v0.13.2 中尚未发布，使用 MCP `render` 替代
+- MCP session 上限为 10，超出后需重启 OpenPencil 桌面端

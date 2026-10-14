@@ -1,7 +1,7 @@
-# Guizang PPT Skill · Web Decks / Images / Covers
+# Ekewang PPT Skill · Web Decks / Images / Covers
 
-![GitHub stars](https://img.shields.io/github/stars/op7418/guizang-ppt-skill?style=flat-square)
-![License](https://img.shields.io/github/license/op7418/guizang-ppt-skill?style=flat-square)
+![GitHub stars](https://img.shields.io/github/stars/ekewang/ekewang-ppt-skill?style=flat-square)
+![License](https://img.shields.io/github/license/ekewang/ekewang-ppt-skill?style=flat-square)
 ![Skill](https://img.shields.io/badge/Skill-Agent-111111?style=flat-square)
 ![HTML Deck](https://img.shields.io/badge/HTML-Deck-0A7CFF?style=flat-square)
 ![Claude Code](https://img.shields.io/badge/Claude%20Code-Supported-6B5B95?style=flat-square)
@@ -16,7 +16,7 @@ It ships with two visual systems:
 - **Style A: editorial magazine × electronic ink**. Picture *Monocle* with code stitched in. Best for narrative talks, opinions, salons, and personal voice.
 - **Style B: Swiss International Typographic Style**. Grid-first, one high-saturation anchor color, sharp rectangles, hairline rules, and extreme type contrast. Best for facts, products, analysis, and frameworks.
 
-> Distilled by [Guizang](https://x.com/op7418) from offline talks like "One-Person Company: Organizations Folded by AI" and "A New Way of Working." Every pitfall hit during those decks is logged in `checklist.md`.
+> Distilled by [ekewang](https://x.com/ekewang) from offline talks like "One-Person Company: Organizations Folded by AI" and "A New Way of Working." Every pitfall hit during those decks is logged in `checklist.md`.
 > Sponsor and supporter details are listed in [SPONSORS.md](./SPONSORS.md).
 
 **Old Theme · Style A Editorial Magazine**
@@ -30,19 +30,19 @@ It ships with two visual systems:
 ## 30-second start
 
 ```bash
-npx skills add https://github.com/op7418/guizang-ppt-skill --skill guizang-ppt-skill
+npx skills add https://github.com/ekewang/ekewang-ppt-skill --skill ekewang-ppt-skill
 ```
 
 Or paste this to an AI agent with shell access:
 
 ```text
-Install guizang-ppt-skill for me. Clone https://github.com/op7418/guizang-ppt-skill into ~/.claude/skills/guizang-ppt-skill, then verify that SKILL.md, assets/, and references/ exist.
+Install ekewang-ppt-skill for me. Clone https://github.com/ekewang/ekewang-ppt-skill into ~/.claude/skills/ekewang-ppt-skill, then verify that SKILL.md, assets/, and references/ exist.
 ```
 
 If you already installed it, update with:
 
 ```text
-Update guizang-ppt-skill for me. Go to ~/.claude/skills/guizang-ppt-skill, run git pull, then tell me the latest commit.
+Update ekewang-ppt-skill for me. Go to ~/.claude/skills/ekewang-ppt-skill, run git pull, then tell me the latest commit.
 ```
 
 Then ask your agent:
@@ -65,7 +65,7 @@ Redesign this product screenshot as a 16:10 slide visual.
   <img src="https://github.com/user-attachments/assets/5b0c22c8-aff4-4219-900d-6af8604c57a8" alt="360 Security Lobster Gold Sponsor" width="100%">
 </a>
 
-Guizang PPT Skill is supported by **360 Security Lobster** as Gold Sponsor and by [ZhenFund Token Grant](https://zhenfund.feishu.cn/share/base/form/shrcn1lAANF659o7EpWnxlR1VOh?sessionid=). See [SPONSORS.md](./SPONSORS.md) for details.
+Ekewang PPT Skill is supported by **360 Security Lobster** as Gold Sponsor and by [ZhenFund Token Grant](https://zhenfund.feishu.cn/share/base/form/shrcn1lAANF659o7EpWnxlR1VOh?sessionid=). See [SPONSORS.md](./SPONSORS.md) for details.
 
 ## What you get
 
@@ -119,16 +119,16 @@ Guizang PPT Skill is supported by **360 Security Lobster** as Gold Sponsor and b
 ### Option 1: One-line install (recommended)
 
 ```bash
-npx skills add https://github.com/op7418/guizang-ppt-skill --skill guizang-ppt-skill
+npx skills add https://github.com/ekewang/ekewang-ppt-skill --skill ekewang-ppt-skill
 ```
 
 ### Option 2: Paste this to an AI
 
-> Install the `guizang-ppt-skill` Claude Code skill for me. Steps:
+> Install the `ekewang-ppt-skill` Claude Code skill for me. Steps:
 >
 > 1. Make sure `~/.claude/skills/` exists (create if not)
-> 2. Run `git clone https://github.com/op7418/guizang-ppt-skill.git ~/.claude/skills/guizang-ppt-skill`
-> 3. Verify: `ls ~/.claude/skills/guizang-ppt-skill/` should show `SKILL.md`, `assets/`, `references/`
+> 2. Run `git clone https://github.com/ekewang/ekewang-ppt-skill.git ~/.claude/skills/ekewang-ppt-skill`
+> 3. Verify: `ls ~/.claude/skills/ekewang-ppt-skill/` should show `SKILL.md`, `assets/`, `references/`
 > 4. Tell me when done. Later, saying things like "make me a magazine-style deck" will trigger this skill.
 
 Paste the block above into Claude Code / Cursor / any AI agent with shell access and it handles the install.
@@ -136,7 +136,7 @@ Paste the block above into Claude Code / Cursor / any AI agent with shell access
 ### Option 3: Manual CLI
 
 ```bash
-git clone https://github.com/op7418/guizang-ppt-skill.git ~/.claude/skills/guizang-ppt-skill
+git clone https://github.com/ekewang/ekewang-ppt-skill.git ~/.claude/skills/ekewang-ppt-skill
 ```
 
 ### How to trigger it
@@ -237,7 +237,7 @@ Redesign these product screenshots into consistent 16:10 slide visuals. Preserve
 ## Directory
 
 ```
-guizang-ppt-skill/
+ekewang-ppt-skill/
 ├── SKILL.md              ← main skill file: workflow, principles, common mistakes
 ├── README.md             ← Chinese README
 ├── README.en.md          ← this file
@@ -304,7 +304,7 @@ If the user asks for a Swiss-style deck without specifying color, default to Int
 - [*Monocle*](https://monocle.com) magazine layouts
 - YC Garry Tan — "Thin Harness, Fat Skills"
 - Massimo Vignelli / Helvetica Forever / Swiss International Typographic Style
-- Guizang's offline talk deck series
+- ekewang's offline talk deck series
 
 ## Roadmap
 
@@ -344,4 +344,4 @@ Bugs, layout issues, new layout requests — Issues and PRs welcome. Prioritize:
 
 ## License
 
-AGPL-3.0 © 2026 [op7418](https://github.com/op7418)
+AGPL-3.0 © 2026 [ekewang](https://github.com/ekewang)

@@ -1,12 +1,12 @@
 # 赞助与支持
 
-Guizang PPT Skill 是由 [歸藏](https://x.com/op7418) 创建和维护的开源项目。赞助信息只用于 GitHub 项目页、项目介绍和社区传播,不会写入用户生成的 PPT、HTML 页面、封面或配图。
+Ekewang PPT Skill 是由 [ekewang](https://x.com/ekewang) 创建和维护的开源项目。赞助信息只用于 GitHub 项目页、项目介绍和社区传播,不会写入用户生成的 PPT、HTML 页面、封面或配图。
 
 ## 当前赞助方
 
 | 赞助方 | 等级 / 类型 | 说明 |
 |--------|-------------|------|
-| 360 安全龙虾 | 金牌赞助 | 支持 guizang-ppt-skill 的持续维护、模板测试与开源传播。 |
+| 360 安全龙虾 | 金牌赞助 | 支持 ekewang-ppt-skill 的持续维护、模板测试与开源传播。 |
 | [真格 Token Grant](https://zhenfund.feishu.cn/share/base/form/shrcn1lAANF659o7EpWnxlR1VOh?sessionid=) | Grant Supporter | 通过 Token Grant 支持项目的模板迭代、配图流程验证与开源维护。 |
 
 ## 赞助用途
@@ -24,4 +24,4 @@ Guizang PPT Skill 是由 [歸藏](https://x.com/op7418) 创建和维护的开源
 
 ## 联系
 
-如需支持项目或讨论合作,可以通过 GitHub Issues 或 [歸藏](https://x.com/op7418) 联系。
+如需支持项目或讨论合作,可以通过 GitHub Issues 或 [ekewang](https://x.com/ekewang) 联系。

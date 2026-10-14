@@ -8,6 +8,12 @@
 
 ## 🔴 P0 · 一定不能犯的错
 
+### 0-T. 页面标题写成了口号、比喻或卖关子
+
+**现象**:标题像格言(“哪些本事值钱，正在换”)、只有比喻(“AI 是一块五层蛋糕”)、套话(“三股力量”)或卖关子(“第一个看的可能不是人”),听众看完不知道这页讲什么。
+
+**做法**:按 `SKILL.md` 3.0.6 重写:标题直接说出这页的结论或问题,具体、大白话、一行内;交付前把全部页标题列成清单读一遍,不看正文也能复述整场内容。
+
 ### 0-S. Swiss locked mode:正文页必须来自原始 22P
 
 **现象**:颜色、字体看起来像 Swiss,但标题跑到中间、图片不在网格上、页面结构和原始 22P 完全不是一套东西。
@@ -215,7 +221,7 @@ node <SKILL_ROOT>/scripts/validate-swiss-deck.mjs path/to/index.html
 **根因**:把新增图片版式或实验结构写成了全局样式修改,或无意改动了原始基座类,例如 `.h-hero` / `.h-xl` 字重、`.tl-node` 列宽、`.duo-compare` 间距。
 
 **做法**:
-- 原始参考文件 `/Users/guohao/Documents/op7418的仓库/项目/Thin-Harness-Fat-Skills/ppt/index.html` 是 Swiss 主题的 golden source,但要以**实际页面用法**为准,不要只看未使用的 CSS helper
+- 原始参考文件 `/Users/guohao/Documents/ekewang的仓库/项目/Thin-Harness-Fat-Skills/ppt/index.html` 是 Swiss 主题的 golden source,但要以**实际页面用法**为准,不要只看未使用的 CSS helper
 - 原始页面的大标题大量使用 `font-weight:200`,强调词/数字用 `300`;`.h-hero` / `.h-xl` / `.h-hero-zh` / `.h-xl-zh` 在本模板里必须保持轻字重,不要恢复成 800/900
 - 除新增封面/封底 ASCII 机制、S22 图片槽位修复、横向时间线 label 居中修复、以及把标题 helper 校正为实际轻字重外,不要改动原始基座 CSS/JS recipe
 - 新增图片能力必须绑定到 S22/S15/S16 原始槽位,不要发明新正文结构
@@ -563,6 +569,21 @@ JS 会动态算总页数并扩展底部翻页圆点，但 `.chrome` 里的 `XX /
   □ Before/After 对比页 `<section>` 带 `data-animate="directional"`,左右列标 left/right
   □ Pipeline 页 `<section>` 带 `data-animate="pipeline"`,每 step 标 data-anim="step"
   □ `grep -c 'data-anim' index.html` 数量 ≥ 页数 × 3(平均每页 3 个以上标记)
+
+图文配色(见 SKILL.md 3.2.0)
+  □ 页面上有带颜色编码的参考图/数据图时,同页表达同一含义的条、数字、图例、标签用的是图里的颜色(已取色),不是默认 accent/白/灰
+  □ 页面文字和讲稿里提到的颜色("蓝色""红色")与图里实际颜色一致
+  □ 深底页上的图色数字已提亮到可读,色相不变
+
+大厅投屏(见 projection-redesign.md)
+  □ 每页有一个视觉主角,观众要读的字 ≥ 1080p 28px
+  □ 变化/差距/比例/顺序/组成用图形表达,不是一段段文字
+  □ 每页最多一块实心色块,放的是结论
+  □ 分步动画顺序与演讲稿一致;B 静态、ESC 索引都是终态
+  □ 1920×1080 与 1366×768 都无溢出、不压分页条
+  □ 中文行末没有孤字(text-wrap:pretty / 改短)
+  □ 演讲稿每个有动画的页都有"画面"说明
+  □ 本轮修改已存档到 版本/vNN/,没有覆盖旧版
 ```
 
 全勾完，才是合格的 PPT。
